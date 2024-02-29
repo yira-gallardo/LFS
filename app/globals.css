@@ -16,6 +16,22 @@
   }
 }
 
+.text-lfs {
+  background: linear-gradient(
+    90deg,
+    rgb(236, 146, 222) 0%,
+    rgb(184, 142, 232) 39%,
+    rgb(98, 202, 223) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.text {
+  text-shadow: #ffffff 0 0 12px, #f31ac8 0 0 25px, #f105c6 0 0 35px,
+    #ee06a5 0 0 45px;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -30,4 +46,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.glass-bg {
+  background: rgba(255, 152, 245, 0.1);
+  box-shadow: 0 8px 32px 0 black;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 1px solid #ec92de;
+}
+.pink-bg {
+  background-color: rgb(236, 146, 222);
 }
