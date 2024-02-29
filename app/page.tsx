@@ -29,6 +29,7 @@ export default function Home() {
   return (
     <main className="overflow-hidden pb-20">
       <Script
+        id="mi-script-unico"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
@@ -236,8 +237,8 @@ export default function Home() {
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="32"
+                height="32"
                 fill="currentColor"
                 viewBox="0 0 16 16"
               >
