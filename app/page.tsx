@@ -29,6 +29,7 @@ export default function Home() {
   return (
     <main className="overflow-hidden pb-20">
       <Script
+        id="mi-script-unico"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
