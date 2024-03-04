@@ -43,12 +43,13 @@ export default function Home() {
         }}
       />
       <section className="bg-black">
-        <div className="flex flex-col items-center justify-between ">
+        <div className="flex flex-col items-center justify-center w-full">
           <Image
             src="/img/logo-brillos.png"
             alt="TMBC"
             width={222}
             height={140}
+            className="object-contain sm:w-56 sm:h-auto"
           ></Image>
         </div>
         <div className="w-full">
@@ -57,46 +58,50 @@ export default function Home() {
             alt="TMBC"
             width={1522}
             height={340}
-            className="w-full h-96 object-cover object-center"
+            className="w-full h-auto object-cover object-center"
           />
         </div>
-        <div className="container mx-auto ">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-screen-lg mx-auto">
-            <div className="py-20  ">
-              <div className="text-2xl font-bold text-white">
-                <p className="my-4">
+            <div className="py-10 sm:py-15 md:py-20">
+              <div
+                className="text-xl sm:text-2xl md:text-3
+              2xl font-bold text-white"
+              >
+                <p className="my-2 sm:my-3 md:my-4">
                   ¡La conferencia/fiesta más exitosa para tocar el valioso tema
                   de los peligros del alcohol!
                 </p>
-                <p className="my-4">
+                <p className="my-2 sm:my-3 md:my-4">
                   Impartida por el orador{" "}
                   <span className="text-lfs font-bold">Rudy Tercero</span> que
                   cuenta con una gran trayectoria y experiencia en el tema.
                 </p>
-                <p className="my-4">
+                <p className="my-2 sm:my-3 md:my-4">
                   + de{" "}
                   <span className="text-lfs font-bold">2,000 conferencias</span>{" "}
                   para un{" "}
                   <span className="text-lfs font-bold">millón de personas</span>
                 </p>
-                <p className="my-4">
+                <p className="my-2 sm:my-3 md:my-4">
                   + de{" "}
                   <span className="text-lfs font-bold">
                     22 años de experiencia
                   </span>{" "}
                   en vida nocturna
                 </p>
-                <p className="my-4">
+                <p className="my-2 sm:my-3 md:my-4">
                   Conferencias especializadas para tres públicos específicos.
                   SECUNDARIA, PREPARATORIA Y PADRES DE FAMILIA.
                 </p>
-                <p className="text-lfs font-bold">
+                <p className="my-2 sm:my-3 md:my-4 text-lfs font-bold">
                   ¡Preparemos juntos a los jóvenes para un mejor futuro!
                 </p>
               </div>
             </div>
           </div>
         </div>
+
         <div className="overflow-hidden">
           <video loop className="w-full" controls>
             <source src="/img/la-fiesta.mp4" type="video/mp4" />
@@ -105,7 +110,7 @@ export default function Home() {
         <div className="container mx-auto py-20">
           <div className="max-w-screen-lg mx-auto text-center">
             <h1 className="text font-bold text-4xl text-white">Contacto</h1>
-            <div className="my-2 text-2xl font-bold">
+            <div className="my-2 text-2xl font-bold text-white">
               <span className="text-lfs font-bold">Contáctanos</span> hoy mismo
               y agenda la conferencia en{" "}
               <span className="text-lfs font-bold">tu escuela.</span>
