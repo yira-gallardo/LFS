@@ -47,7 +47,9 @@ body {
     text-wrap: balance;
   }
 }
-
+.icon {
+  color: white;
+}
 .glass-bg {
   background: rgba(255, 152, 245, 0.1);
   box-shadow: 0 8px 32px 0 black;

@@ -1,13 +1,11 @@
 "use client";
 import React, { useState, useRef } from "react";
-import Image from "next/image";
+
 import Script from "next/script";
-import Link from "next/link";
-import emailjs from "@emailjs/browser";
 
 export default function AvisoDePrivacidad() {
   return (
-    <main className="overflow-hidden pb-20">
+    <main className="overflow-hidden bg-black text-white pb-48 pt-20">
       <Script
         id="mi-script-unico"
         strategy="lazyOnload"
@@ -22,9 +20,9 @@ export default function AvisoDePrivacidad() {
       `,
         }}
       />
-      <section className="bg-black container mx-auto py-20 text-center ">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 text-center ">
         <p className="text-xl">Aviso de privacidad</p>
-        <h1 className="pt-10">
+        <h1 className="pt-10 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
