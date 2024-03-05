@@ -1,10 +1,15 @@
 "use client";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
+import emailjs from "@emailjs/browser";
 
 export default function Home() {
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [mandandoMensaje, setMandandoMensaje] = useState(false);
+
+  const form = useRef<any>();
   const [formData, setFormData]: any = useState({
     tipo: "",
     nombre: "",
@@ -24,6 +29,30 @@ export default function Home() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(formData);
+  };
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    setMandandoMensaje(true);
+
+    emailjs
+      .sendForm("service_rc3lmep", "template_rklqc9c", form.current as any, {
+        publicKey: "QRXApDrLGQPRaipq-",
+      })
+      .then(
+        () => {
+          console.log("result.text");
+          setSubmitMessage("Se envió correctamente");
+          setMandandoMensaje(false);
+        },
+        (error) => {
+          setMandandoMensaje(false);
+          console.log("FAILED...", error.text);
+          setSubmitMessage(
+            "Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde."
+          );
+        }
+      );
   };
 
   return (
@@ -116,102 +145,111 @@ export default function Home() {
               <span className="text-lfs font-bold">tu escuela.</span>
             </div>
             <div className="flex justify-center items-center my-14 text-left">
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 glass-bg text-white"
-              >
-                <div className="mb-4">
-                  <label
-                    className="block text-sm font-bold mb-2"
-                    htmlFor="tipoUsuario"
-                  >
-                    Soy
-                  </label>
-                  <select
-                    id="tipoUsuario"
-                    name="tipoUsuario"
-                    value={formData.tipoUsuario}
-                    onChange={handleChange}
-                    className="bg-black w-full py-2 px-3"
-                  >
-                    <option value="">Selecciona una opción</option>
-                    <option value="colegio">Colegio</option>
-                    <option value="padre">Padre de familia</option>
-                    <option value="asociacion">
-                      Asociación de padres de familia
-                    </option>
-                    <option value="alumno">Alumno</option>
-                  </select>
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block text-sm font-bold mb-2"
-                    htmlFor="nombre"
-                  >
-                    Nombre y apellido
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    className="bg-black w-full py-2 px-3 mb-2"
-                    placeholder="Nombre"
-                  />
-                  <input
-                    type="text"
-                    id="apellido"
-                    name="apellido"
-                    value={formData.apellido}
-                    onChange={handleChange}
-                    className="bg-black w-full py-2 px-3"
-                    placeholder="Apellido"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block text-sm font-bold mb-2"
-                    htmlFor="email"
-                  >
-                    Mail
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="bg-black w-full py-2 px-3"
-                    placeholder="Correo electrónico"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block text-sm font-bold mb-2"
-                    htmlFor="telefono"
-                  >
-                    Teléfono (opcional)
-                  </label>
-                  <input
-                    type="text"
-                    id="telefono"
-                    name="telefono"
-                    value={formData.telefono}
-                    onChange={handleChange}
-                    className="bg-black w-full py-2 px-3"
-                    placeholder="Teléfono"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <button
-                    className="pink-bg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full "
-                    type="submit"
-                  >
-                    Enviar
-                  </button>
-                </div>
-              </form>
+              {submitMessage ? (
+                <p>{submitMessage}</p>
+              ) : (
+                <form
+                  ref={form}
+                  onSubmit={sendEmail}
+                  className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 glass-bg text-white"
+                >
+                  <div className="mb-4">
+                    <label
+                      className="block text-sm font-bold mb-2"
+                      htmlFor="tipoUsuario"
+                    >
+                      Soy
+                    </label>
+                    <select
+                      id="tipoUsuario"
+                      name="tipoUsuario"
+                      value={formData.tipoUsuario}
+                      onChange={handleChange}
+                      className="bg-black w-full py-2 px-3"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="colegio">Colegio</option>
+                      <option value="padre">Padre de familia</option>
+                      <option value="asociacion">
+                        Asociación de padres de familia
+                      </option>
+                      <option value="alumno">Alumno</option>
+                    </select>
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      className="block text-sm font-bold mb-2"
+                      htmlFor="nombre"
+                    >
+                      Nombre y apellido
+                    </label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      value={formData.nombre}
+                      onChange={handleChange}
+                      className="bg-black w-full py-2 px-3 mb-2"
+                      placeholder="Nombre"
+                    />
+                    <input
+                      type="text"
+                      id="apellido"
+                      name="apellido"
+                      value={formData.apellido}
+                      onChange={handleChange}
+                      className="bg-black w-full py-2 px-3"
+                      placeholder="Apellido"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      className="block text-sm font-bold mb-2"
+                      htmlFor="email"
+                    >
+                      Mail
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="bg-black w-full py-2 px-3"
+                      placeholder="Correo electrónico"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      className="block text-sm font-bold mb-2"
+                      htmlFor="telefono"
+                    >
+                      Teléfono (opcional)
+                    </label>
+                    <input
+                      type="text"
+                      id="telefono"
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleChange}
+                      className="bg-black w-full py-2 px-3"
+                      placeholder="Teléfono"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    {mandandoMensaje ? (
+                      <p className="text-center">Enviando...</p>
+                    ) : (
+                      <button
+                        className="pink-bg hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full "
+                        type="submit"
+                      >
+                        Enviar
+                      </button>
+                    )}
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -233,7 +271,6 @@ export default function Home() {
               </svg>
             </div>
           </Link>
-
           <Link
             href="https://www.tiktok.com/@rudytercerof"
             target="_blank"
@@ -251,6 +288,16 @@ export default function Home() {
               </svg>
             </div>
           </Link>
+        </div>
+        <div className="container mx-auto py-20">
+          <div className="max-w-screen-lg mx-auto text-center">
+            <Link
+              href="/aviso-de-privacidad"
+              className="text-lg font-bold text-white"
+            >
+              Aviso de privacidad
+            </Link>
+          </div>
         </div>
       </section>
     </main>
