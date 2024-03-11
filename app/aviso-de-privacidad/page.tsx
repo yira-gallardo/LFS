@@ -26,11 +26,10 @@ export default function AvisoDePrivacidad() {
           <p className="">
             De conformidad con lo establecido en la Ley Federal de Protección de
             Datos Personales en Posesión de los Particulares (en adelante, la
-            "Ley") y su Reglamento, se emite el siguiente aviso de privacidad:
+            Ley) y su Reglamento, se emite el siguiente aviso de privacidad:
           </p>
           <p className="">
             <span className="font-bold">
-              {" "}
               Responsable de la protección de sus datos personales: Clicker 360
               SA de CV
             </span>
@@ -57,18 +56,15 @@ export default function AvisoDePrivacidad() {
             solicitudes realizadas a través del formulario de contacto.
           </p>
           <p>
-            {" "}
             •Establecer comunicación con usted para responder a sus
             requerimientos.
           </p>
           <p>
-            {" "}
             •Enviar información relacionada con nuestros productos, servicios o
             promociones, siempre y cuando haya otorgado su consentimiento
             expreso para ello.
           </p>
           <p>
-            {" "}
             <span className="font-bold">
               Transferencias de datos personales:
             </span>
@@ -78,9 +74,7 @@ export default function AvisoDePrivacidad() {
             transferencias se realizarán conforme a lo establecido en la Ley.
           </p>
           <p>
-            {" "}
             <span className="font-bold">
-              {" "}
               Medios para ejercer sus derechos ARCO:
             </span>
             Usted tiene derecho de acceder, rectificar, cancelar u oponerse al
@@ -92,7 +86,6 @@ export default function AvisoDePrivacidad() {
           </p>
           <p>
             <span className="font-bold">
-              {" "}
               Modificaciones al aviso de privacidad:
             </span>
             El presente aviso de privacidad puede sufrir modificaciones, cambios
