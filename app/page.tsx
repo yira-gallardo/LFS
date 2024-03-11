@@ -132,7 +132,7 @@ export default function Home() {
         </div>
 
         <div className="overflow-hidden">
-          <video loop className="w-full" controls>
+          <video loop className="w-full" controls autoPlay muted>
             <source src="/img/video-final.mp4" type="video/mp4" />
           </video>
         </div>
